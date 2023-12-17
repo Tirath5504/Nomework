@@ -258,7 +258,10 @@
             src="images/moon.svg"
         /></span>
       </button>
-      <section class="generate-image-section" id="homework">
+      <div id="loading" style="display: none; width: 100%; justify-content: center; align-items: center; min-height: 100vh;">
+      <div class="lds-grid" ><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>
+      <section class="generate-image-section" style="display: none;" id="homework">
         <br /><br />
         <form id="generate-image-form">
           <!-- Generate Image Section -->
@@ -660,6 +663,9 @@
       import { client } from "https://cdn.jsdelivr.net/npm/@gradio/client@0.1.4/dist/index.min.js";
       async function getData(){
         console.log('clicked');
+        document.getElementById('loading').style.display = 'flex';
+      
+            scrollToDiv('loading');
         const promptField = document.getElementById('promptField');
         const level = document.getElementById('level');
         const characters = document.getElementById('characters');
@@ -678,7 +684,8 @@
 	// 			data.prompt, // string  in 'topic' Textbox component
 	// ]);
   console.log(data);
-  const resd = await fetch('http://localhost:3000/textprompt/', {
+  try {
+   const resd = await fetch('http://localhost:3000/textprompt/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -688,10 +695,17 @@
   const result = await resd.json();
   console.log(result);
         if(result.result){
+          
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('homework').style.display = 'flex';
           scrollToDiv('homework');
           const canv = document.getElementById('note');
           canv.innerText = result.result;
         }
+         
+  } catch (error) {
+    console.log(error);
+  }
       }
       
       document.getElementById('prompt').addEventListener('click', ()=>getData());
