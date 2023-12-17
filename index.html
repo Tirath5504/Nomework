@@ -99,7 +99,30 @@
   </head>
 
   <body>
-    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100%; width: 100%;">
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; width: 100%;">
+      <div class="background">
+        <svg class="waves" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1600 900">
+          <defs>
+            <linearGradient id="bg" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color: rgba(53, 127, 242, 0.6)"></stop>
+              <stop offset="100%" style="stop-color: rgba(38, 89, 190, 0.06)"></stop>
+            </linearGradient>
+            <path id="wave" fill="url(#bg)" d="M-363.852,502.589c0,0,236.988-41.997,505.475,0
+          s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.995v560.106H-363.852V502.589z" />
+          </defs>
+          <g>
+            <use xlink:href="#wave" opacity=".3">
+              <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="8s" calcMode="spline" values="270 230; -334 180; 270 230" keyTimes="0; .5; 1" keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
+            </use>
+            <use xlink:href="#wave" opacity=".6">
+              <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="6s" calcMode="spline" values="-270 230;243 220;-270 230" keyTimes="0; .6; 1" keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
+            </use>
+            <use xlink:href="#wave" opacty=".9">
+              <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="4s" calcMode="spline" values="0 230;-140 200;0 230" keyTimes="0; .4; 1" keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
+            </use>
+          </g>
+        </svg>
+      </div>
       <div style=" display: flex; flex-direction: row; gap: 2vw; justify-content: start; align-items: center;">
         <h3 class="navlink">Home</h3>
         <h3 class="navlink">Features</h3>
@@ -107,39 +130,113 @@
         <h3 class="navlink">FAQ</h3>
         <h3 class="navlink">Contact</h3>
       </div>
-        <section style="min-height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column; height: 100%; position: relative;">
-          <div style=" border-radius: 100%; width: 300px; height: 300px;position: absolute; z-index: -5; 
+        <section style="min-height: 100vh; display: flex; justify-content: start; align-items: center; flex-direction: column; height: 100%; position: relative;">
+          <div style=" border-radius: 100%; width: 300px; height: 300px;position: absolute; z-index: -3; 
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -110%);
+          background-image: linear-gradient(to right, #b3ffab 0%, #12fff7 100%);
+          clip: rect(-500px, 500px, 260px, -150px);
+          "></div>
+          <!-- <div style=" border-radius: 100%; width: 300px; height: 300px;position: absolute; z-index: -3; 
           top: 50%;
           left: 50%;
           transform: translate(-50%, -70%);
-          background-image: linear-gradient(to top, #b3ffab 0%, #12fff7 100%);;"></div>
-            <h1 style="color: #fff; font-size: 3rem; text-align: center; background-image: linear-gradient(to right, #21D4FD, #B721FF);
+          background-image: linear-gradient(to right, #21D4FD 0%, #B721FF 100%);
+          clip: rect(220px, 260px, 500px, -150px);
+          "></div> -->
+            <h1 style="color: #fff; font-size: 3rem; text-align: center; background-image: linear-gradient(to right, #21D4FD, #B721FF); padding-top: 10vh;
             color: transparent;
             -webkit-background-clip: text;
-            background-clip: text;">NOMEWORK</h1>
+            background-clip: text; mix-blend-mode:exclusion">NOMEWORK</h1>
             <div style="width: 80%;color: rgb(255, 255, 255); border-radius: 10px; border-width: 10px; padding-right: 1vw; padding-left: 1vw; padding-top: 2vh; padding-bottom: 2vh; background-color: #21D4FD;
             background-image: linear-gradient(19deg, #808080 0%, #454040 100%); display: flex; flex-direction: row; gap: 1vw; justify-content: center; align-items: center; margin-top: 2rem; font-size: medium; max-width: 80%; border-color: transparent;" onclick="
             ">
-            <div contenteditable="true" style="width: 100%; height: 100%;outline: none;"></div>
+            <div contenteditable="true" id="promptField" style="width: 100%; height: 100%;outline: none;"></div>
             <svg xmlns="http://www.w3.org/2000/svg" 
             id="scrollButton" fill="#fff" x="0px" y="0px" width="24" height="24" viewBox="0 0 24 24">
               <path d="M 2 3 L 2 10.5 L 17 12 L 2 13.5 L 2 21 L 22 12 L 2 3 z"></path>
           </svg>
         </div>
-            <p style=" font-size: 1.5rem; text-align: center; margin-top: 2rem; font-size: medium; max-width: 80%;">I hate writing assignments so I made this tool that converts text to an image that looks like handwriting. You can copy paste text content into the textbox and click generate image button to generate image. Text to Handwriting</p>
+            <p style=" font-size: 1.5rem; text-align: center; margin-top: 2rem; font-size: medium; max-width: 80%; ">I hate writing assignments so I made this tool that converts text to an image that looks like handwriting. You can copy paste text content into the textbox and click generate image button to generate image. Text to Handwriting</p>
             <!-- <div style="text-align: center; margin-top: 2rem;">
                 <a href="https://saurabhdaware.github.io/text-to-handwriting" style="padding: 1rem 2rem; background-color: #fff; color: #000; border-radius: 5px; font-size: 1.5rem; text-decoration: none;">Go to Text to Handwriting</a>
             </div> -->
         </section>
+        
+       <div id="inputs" style="min-height: 100vh;display: flex; flex-direction: column; justify-content: start; align-items: center; width: 100%;">
+              <h2 style="padding-bottom:5vh;padding-top: 7vh;">Help us make your answer <i>yours</i></h2>
+              <div style="width: 100%; padding-top: 2vh; padding-bottom: 2vh;">
+                <label class="block" for="Level"
+                  >Level</label
+                >
+                <select id="level" style="width: 100%;">
+                  <option
+                    selected
+                    value="kids"
+                  >
+                    Kids
+                  </option>
+                  <option value="teenager">Teenager</option>
+                  <option
+                    value="adults"
+                  >
+                    Adults
+                  </option>
+                </select>
+              </div>
+              <div style="width: 100%;padding-top: 2vh; padding-bottom: 2vh;">
+                <label class="block" for="characters"
+                  >Number of characters</label
+                >
+                <select id="characters" style="width: 100%;">
+                  <option
+                    selected
+                    value="100"
+                  >
+                    100
+                  </option>
+                  <option value="200">200</option>
+                  <option value="300">300</option>
+                  <option value="400">400</option>
+                  <option value="500">500</option>
+                  <option value="600">600</option>
+                  <option value="700">700</option>
+                  <option value="800">800</option>
+                  <option value="900">900</option>
+                  <option value="1000">1000</option>
+                </select>
+              </div>
+              <div style="width: 100%; padding-top: 2vh; padding-bottom: 2vh;">
+                <label class="block" for="vocab"
+                  >Mistakes</label
+                >
+                <select id="mistakes" style="width: 100%;">
+                  <option
+                    selected
+                    value="kids"
+                  >
+                    None
+                  </option>
+                  <option value="few">Few</option>
+                  <option
+                    value="many"
+                  >
+                    Many
+                  </option>
+                </select>
+              </div>
+              <button
+              id="prompt"
+              class="button generate-image-button"
+              style="width: 100%; color: #434343; margin-top: 5vh;"
+            >
+              Generate Text
+            </button>
+            </div>
     </div>
     <main>
-      <img src="./images/logo.png"
-        style="position: absolute; left: 30px; top: 30px; width: 50px; background-image: linear-gradient(to right, #21D4FD, #B721FF);
-            color: transparent;
-            fill: #fff;
-            -webkit-background-clip: text;
-            background-clip: text;"
-      ></img>
+      <img src="./images/logo.png" width="40px" style="position: absolute; left: 30px; top:30px;" alt="nomework">
       <button
         aria-label="Activate Dark Mode"
         title="Toggle Dark Mode"
@@ -177,7 +274,7 @@
                   <div contenteditable="true" class="top-margin"></div>
                   <div class="display-flex left-margin-and-content">
                     <div contenteditable="true" class="left-margin"></div>
-                    <div class="paper-content" id="note" contenteditable="true">
+                    <div class="paper-content" id="note" contenteditable="true" style="outline: none;">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       Ut rhoncus dui eget tortor feugiat iaculis. Morbi et dolor
                       in felis viverra efficitur. Integer id laoreet arcu.
@@ -203,8 +300,17 @@
                 <br />
               </div>
 
+              <div>
+                <button
+                  id="draw-diagram-button"
+                  type="button"
+                  style="font-size: 0.9rem; margin-top: 5px; display: none;"
+                  class="draw-button"
+                >
+                  Draw <small>(Beta)</small>
+                </button>
+              </div>
             </div>
-
             <div class="customization-col">
               <!-- Handwriting Font -->
               <div style="padding: 5px 0px 5px 0px;">
@@ -412,12 +518,12 @@
                   width: 80%;
                 "
               />
-              <div style="text-align: center; padding: 30px 0px; width: 100%;">
+              <div style="text-align: center; padding: 30px 0px;">
                 <button
                   type="submit"
                   data-testid="generate-image-button"
                   class="button generate-image-button"
-                  style="width: 100%;"
+                  style="width: 100%; color: #434343;"
                 >
                   Generate Image
                 </button>
@@ -434,7 +540,7 @@
           Click "Generate Image" Button to generate new image.
         </div>
         <div style="text-align: center; padding: 30px;">
-          <button class="imp-button" id="download-as-pdf-button">
+          <button class="imp-button" id="download-as-pdf-button" style=" background-color: #434343; color: aliceblue;">
             Download All Images as PDF
           </button>
           <button class="delete-button" id="delete-all-button">
@@ -493,6 +599,7 @@
     ></script>
     <script type="module" src="js/app.mjs"></script>
     <script defer src="https://unpkg.com/jspdf@^1/dist/jspdf.min.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@gradio/client@0.1.4/dist/index.min.js"></script>
     <script>
       function toggleTheme(toggleButton) {
         if (document.body.classList.contains('dark')) {
@@ -529,8 +636,9 @@
         }
 
         document.getElementById('scrollButton').addEventListener('click', function() {
-            scrollToDiv('homework');
+            scrollToDiv('inputs');
         });
+
 
       document.querySelectorAll('#donations a[href]').forEach((anchorEl) => {
         anchorEl.addEventListener('click', (e) => {
@@ -547,6 +655,46 @@
           }
         });
       });
+    </script>
+    <script type="module">
+      import { client } from "https://cdn.jsdelivr.net/npm/@gradio/client@0.1.4/dist/index.min.js";
+      async function getData(){
+        console.log('clicked');
+        const promptField = document.getElementById('promptField');
+        const level = document.getElementById('level');
+        const characters = document.getElementById('characters');
+        const mistakes = document.getElementById('mistakes');
+        const data = {
+          prompt: promptField.innerText,
+          level: level.value,
+          characters: characters.value,
+          mistakes: mistakes.value
+        }
+  //       const app = await client("https://siddhantuniyal-mumbaihacks-genai.hf.space/--replicas/wqcxd/");
+  //       const result = await app.predict("/predict", [		
+	// 			data.level, // string  in 'level' Textbox component		
+	// 			data.characters, // string  in 'number_of_words' Textbox component		
+	// 			data.mistakes, // string  in 'how_many_errors' Textbox component		
+	// 			data.prompt, // string  in 'topic' Textbox component
+	// ]);
+  console.log(data);
+  const resd = await fetch('http://localhost:3000/textprompt/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  const result = await resd.json();
+  console.log(result);
+        if(result.result){
+          scrollToDiv('homework');
+          const canv = document.getElementById('note');
+          canv.innerText = result.result;
+        }
+      }
+      
+      document.getElementById('prompt').addEventListener('click', ()=>getData());
     </script>
   </body>
 </html>

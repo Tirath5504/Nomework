@@ -6,15 +6,15 @@ body {
 body {
   --background-primary: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
   --font-color-primary: #333;
-  --elevation-background: #f3f3f3;
+  --elevation-background: #1d1d1d;
   --link-color: #006eb8;
   --font-family-primary: 'monument', sans-serif;
   --handwriting-font: 'Homemade Apple', cursive;
   --primary-color: #1a73e8;
   --ink-color: #000f55;
+  --field-borders: #222;
   --label-color: #333;
-  --field-borders: #e0e0e0;
-  --primary-button-bg: #1d1d1d;
+  --primary-button-bg: #eee;
   --primary-button-color: #eee;
   --font-color-delete: #dc3545;
   --delete-button-borders: #dc3545;
@@ -25,16 +25,20 @@ body {
 body.dark {
   --background-primary: linear-gradient(to right, #434343 0%, black 100%);
   --font-color-primary: #ccc;
-  --elevation-background: #1d1d1d;
+  --elevation-background: #f3f3f3;
   --link-color: #09f;
   --label-color: #aaa;
-  --field-borders: #222;
-  --primary-button-bg: #eee;
+  --field-borders: #e0e0e0;
+  --primary-button-bg: #1d1d1d;
   --primary-button-color: #111;
   --delete-button-borders: #e76f7b;
   --font-color-delete: #e76f7b;
 }
 
+button, .move-left, .move-right{
+  font-family: 'monument', sans-serif;
+  background-color: var(--primary-button-bg);
+}
 
 @font-face {
   font-family: 'Hindi_Font';
@@ -95,8 +99,33 @@ button {
   padding: 10px 20px;
 }
 
-h1, h2, h3, h4 .navlink{
+h1, h2, h3, h4 .navlink, .generate-image-button{
   color: var(--font-color-primary);
+}
+
+.generate-image-button{
+  background-color: #234cd5;
+  background: var(--blue-gradient);
+  background-image: linear-gradient(to right, #b3ffab, #12fff7, #21D4FD, #B721FF);
+  cursor: pointer;
+  background-size: 400% 200%;
+  moz-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  animation: border-flicker 2s linear infinite;
+
+}
+.generate-image-button:hover{
+  background-position: 100% 0;
+animation: border-flicker 2s linear infinite;
+    moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+.card:focus {
+  outline: none;
 }
 h1 {
   font-size: 3rem;
@@ -504,4 +533,25 @@ input[type='file']::before {
   .delete-button {
     margin-top: 10px;
   }
+}
+
+.background {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.waves {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scaleY(0.9) scaleX(1.25);
+  transform-origin: bottom;
+  box-sizing: border-box;
+  display: block;
+  pointer-events: none;
 }
