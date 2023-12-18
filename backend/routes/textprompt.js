@@ -1,6 +1,6 @@
 import express from "express"
 const router = express.Router()
-import {client} from "@gradio/client"
+import {client} from "../client/dist/index.js"
 import esource from 'eventsource';
 global.EventSource = esource
 
